@@ -1,0 +1,34 @@
+{
+    "manifest_version":2,
+    "name":"linkedInProfile",
+    "version":"1.0",
+    "description":"A hello world extension !",
+    "icons":{
+          "128":"icon128.png",
+          "48":"icon48.png",
+          "16":"icon16.png"
+    },
+    "page_action":{
+        "default_icon":"icon16.png",
+        "default_popup":"popup.html"
+    },
+
+    "background":{
+        "scripts":["background.js"],
+        "persistent":true
+    },
+   
+    "content_scripts":[
+        {
+            "matches":["https://www.linkedin.com/*"],
+            "js":["jquery-3.6.0.min.js","content.js"],
+            "css":["content.css"]
+        }
+    ],
+    "permissions":[
+        "tabs",
+        "https://www.linkedin.com/*",
+        "storage",
+        "activeTab"
+    ]
+}
